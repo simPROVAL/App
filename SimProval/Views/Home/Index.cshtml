@@ -1,0 +1,20 @@
+﻿@{
+    //ViewBag.Title = "Home Page";
+}
+
+<h2>@ViewBag.Message</h2>
+<p>
+   
+</p>
+
+<ul data-role="listview" data-inset="true">
+    @*<li data-role="list-divider">Navigation</li>*@
+ 
+    <li>@Html.ActionLink("Survey this site", "Create", "Site")</li>
+     <li data-role="list-divider"></li>
+    <li>@Html.ActionLink("Recent Sites", "Index", "Site")</li>
+    <li data-role="list-divider"></li>
+    <li>@Html.ActionLink("About", "About", "Home")</li>
+
+    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+</ul>

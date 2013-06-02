@@ -1,0 +1,102 @@
+﻿@model SimProval.Site
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>Site</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Structure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Structure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Height)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Height)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DesignSpeed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DesignSpeed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Region)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.WindDirection)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WindDirection)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Shielding)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Shielding)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerrainCategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerrainCategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Topography)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Topography)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

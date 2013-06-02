@@ -1,0 +1,126 @@
+﻿@model SimProval.Site
+
+@{
+    ViewBag.Title = "Site Survey";
+}
+
+<h2>Site Survey</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend></legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Title)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Title)
+            @Html.ValidationMessageFor(model => model.Title)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Address)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Address)
+            @Html.ValidationMessageFor(model => model.Address)
+        </div>
+@*
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Structure)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Structure)
+            @Html.ValidationMessageFor(model => model.Structure)
+        </div>
+*@
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Height)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Height)
+            @Html.ValidationMessageFor(model => model.Height)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Email)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Email)
+            @Html.ValidationMessageFor(model => model.Email)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.DesignSpeed)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.DesignSpeed)
+            @Html.ValidationMessageFor(model => model.DesignSpeed)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Region)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Region)
+            @Html.ValidationMessageFor(model => model.Region)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.WindDirection)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.WindDirection)
+            @Html.ValidationMessageFor(model => model.WindDirection)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Shielding)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Shielding)
+            @Html.ValidationMessageFor(model => model.Shielding)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.TerrainCategory)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.TerrainCategory)
+            @Html.ValidationMessageFor(model => model.TerrainCategory)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Topography)
+        </div>
+        <div class="editor-field">
+            @Html.DisplayFor(model => model.Topography)
+            @Html.ValidationMessageFor(model => model.Topography)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+            <input type="button" value="Email Site Survey" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

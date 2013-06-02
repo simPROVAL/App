@@ -1,0 +1,99 @@
+﻿@model SimProval.Site
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Site</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Title)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Title)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Address)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Address)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Structure)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Structure)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Height)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Height)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.DesignSpeed)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.DesignSpeed)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Region)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Region)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.WindDirection)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.WindDirection)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Shielding)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Shielding)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.TerrainCategory)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.TerrainCategory)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Topography)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Topography)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

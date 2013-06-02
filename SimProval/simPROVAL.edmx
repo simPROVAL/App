@@ -1,0 +1,143 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="SimPROVALModel.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2008" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityContainer Name="SimPROVALModelStoreContainer">
+          <EntitySet Name="Site" EntityType="SimPROVALModel.Store.Site" store:Type="Tables" Schema="dbo" />
+          <EntitySet Name="Wind Code Region" EntityType="SimPROVALModel.Store.Wind Code Region" store:Type="Tables" Schema="dbo" />
+        </EntityContainer>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="nvarchar" MaxLength="150" />
+          <Property Name="Address" Type="nvarchar" MaxLength="150" />
+          <Property Name="Structure" Type="int" />
+          <Property Name="Height" Type="float" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Location" Type="geography" />
+          <Property Name="Email" Type="nvarchar" MaxLength="150" />
+          <Property Name="DesignSpeed" Type="float" />
+          <Property Name="Region" Type="char" MaxLength="1" />
+          <Property Name="WindDirection" Type="float" />
+          <Property Name="Shielding" Type="float" />
+          <Property Name="TerrainCategory" Type="float" />
+          <Property Name="Topography" Type="float" />
+        </EntityType>
+        <EntityType Name="Wind Code Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="WIND_CODE" Type="nvarchar" MaxLength="255" />
+          <Property Name="DIST" Type="float" />
+          <Property Name="GEO" Type="geography" />
+        </EntityType>
+        <Function Name="sp_Region" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="long" Type="float" Mode="In" />
+          <Parameter Name="lat" Type="float" Mode="In" />
+        </Function>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="SimPROVALModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="SimPROVALEntities" p1:LazyLoadingEnabled="true">
+          <EntitySet Name="Sites" EntityType="SimPROVALModel.Site" />
+          <FunctionImport Name="sp_Region" ReturnType="Collection(String)">
+            <Parameter Name="long" Mode="In" Type="Double" />
+            <Parameter Name="lat" Mode="In" Type="Double" />
+          </FunctionImport>
+          <EntitySet Name="Wind_Code_Regions" EntityType="SimPROVALModel.Wind_Code_Region" />
+        </EntityContainer>
+        <EntityType Name="Site">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+          <Property Name="Title" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Address" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="Structure" Type="Int32" />
+          <Property Name="Height" Type="Double" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Location" Type="Geography" />
+          <Property Name="Email" Type="String" MaxLength="150" Unicode="true" FixedLength="false" />
+          <Property Name="DesignSpeed" Type="Double" />
+          <Property Name="Region" Type="String" MaxLength="1" Unicode="false" FixedLength="true" />
+          <Property Name="WindDirection" Type="Double" />
+          <Property Name="Shielding" Type="Double" />
+          <Property Name="TerrainCategory" Type="Double" />
+          <Property Name="Topography" Type="Double" />
+        </EntityType>
+        <EntityType Name="Wind_Code_Region">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Type="Int32" Name="ID" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Type="String" Name="WIND_CODE" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Type="Double" Name="DIST" />
+          <Property Type="Geography" Name="GEO" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="SimPROVALModelStoreContainer" CdmEntityContainer="SimPROVALEntities">
+          <EntitySetMapping Name="Sites">
+            <EntityTypeMapping TypeName="SimPROVALModel.Site">
+              <MappingFragment StoreEntitySet="Site">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Structure" ColumnName="Structure" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Location" ColumnName="Location" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="DesignSpeed" ColumnName="DesignSpeed" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="WindDirection" ColumnName="WindDirection" />
+                <ScalarProperty Name="Shielding" ColumnName="Shielding" />
+                <ScalarProperty Name="TerrainCategory" ColumnName="TerrainCategory" />
+                <ScalarProperty Name="Topography" ColumnName="Topography" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="sp_Region" FunctionName="SimPROVALModel.Store.sp_Region" />
+          <EntitySetMapping Name="Wind_Code_Regions">
+            <EntityTypeMapping TypeName="SimPROVALModel.Wind_Code_Region">
+              <MappingFragment StoreEntitySet="Wind Code Region">
+                <ScalarProperty Name="GEO" ColumnName="GEO" />
+                <ScalarProperty Name="DIST" ColumnName="DIST" />
+                <ScalarProperty Name="WIND_CODE" ColumnName="WIND_CODE" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
